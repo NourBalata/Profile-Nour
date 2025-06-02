@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nour Balata Portfolio</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    /* Reset & Base */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #0b1120;
+      color: #e0e6f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #60a5fa;
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: #121b33;
+      border-radius: 12px;
+      padding: 30px 40px 50px;
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Header */
+    .header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .profile-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    img.profile {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #3b82f6;
+      box-shadow: 0 0 15px #3b82f6;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    img.profile:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #60a5fa;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #60a5fa;
+    }
+    .role {
+      font-size: 1.1rem;
+      color: #90a4ae;
+      margin-top: 4px;
+    }
+
+    .download-btn {
+      background-color: #3b82f6;
+      color: white;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1rem;
+    }
+    .download-btn:hover {
+      background-color: #60a5fa;
+      box-shadow: 0 6px 20px rgba(96, 165, 250, 0.7);
+      color: white;
+    }
+
+    .bio {
+      max-width: 720px;
+      margin: 20px auto 40px;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      background: #1e2a48;
+      color: #3b82f6;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(59, 130, 246, 0.3);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.1rem;
+    }
+    .social-links a:hover {
+      background: #3b82f6;
+      color: white;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.7);
+    }
+
+    .skills {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+    .skills h2 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #3b82f6;
+      display: inline-block;
+      padding-bottom: 6px;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .skill-item {
+      background: #1e2a48;
+      padding: 14px 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(59, 130, 246, 0.2);
+      font-weight: 600;
+      color: #a5b4fc;
+      min-width: 140px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    .skill-item:hover {
+      background: #3b82f6;
+      color: white;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+    }
+
+    .projects {
+      width: 100%;
+      margin-bottom: 50px;
+    }
+    .projects h2 {
+      color: #60a5fa;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #3b82f6;
+      display: inline-block;
+      padding-bottom: 6px;
+      font-weight: 700;
+      font-size: 1.8rem;
+      text-align: center;
+      width: 100%;
+    }
+    .project-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+    .project-card {
+      background: #1e2a48;
+      border-radius: 12px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 3px 12px rgba(59, 130, 246, 0.3);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(96, 165, 250, 0.5);
+    }
+    .project-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .project-card h3 {
+      color: #a5b4fc;
+      font-size: 1.2rem;
+      margin: 10px 0 8px;
+    }
+    .project-card p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      margin-bottom: 15px;
+    }
+    .project-card a {
+      display: inline-block;
+      padding: 10px 16px;
+      background-color: #3b82f6;
+      color: white;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+    .project-card a:hover {
+      background-color: #60a5fa;
+    }
+
+    /* Contact Section */
+    #contact {
+      width: 100%;
+      background: #121b33;
+      border-radius: 12px;
+      padding: 30px 40px;
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+      color: #e0e6f0;
+      margin-top: 40px;
+      text-align: center;
+    }
+    #contact h2 {
+      color: #60a5fa;
+      font-weight: 700;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .contact-item {
+      background: #1e2a48;
+      color: #3b82f6;
+      font-weight: 600;
+      padding: 14px 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(59, 130, 246, 0.4);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 1.1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .contact-item:hover {
+      background: #3b82f6;
+      color: white;
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.7);
+    }
+
+    @media (max-width: 600px) {
+      .header {
+        flex-direction: column;
+        align-items: center;
+      }
+      .profile-info {
+        flex-direction: column;
+        gap: 10px;
+      }
+      h1 { font-size: 2rem; }
+      .download-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .skill-list, .project-list {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .toggle-btn {
+  margin-top: 10px;
+  background-color: #3b82f6;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+.toggle-btn:hover {
+  background-color: #60a5fa;
+}
+.grayscale {
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container" data-aos="fade-up">
+    <header class="header">
+      <div>
+  <button id="toggleBW" class="toggle-btn">تبديل الأبيض والأسود</button>
+</div>
+      <div class="profile-info">
+        <img src="myphoto.jpeg" alt="Nour Balata Photo" class="profile" />
+        <div>
+          <h1>Nour Balata</h1>
+          <div class="role">PHP-Laravel Developer</div>
+        </div>
+      </div>
+      <a href="Nour_Balata_CV.pdf" download class="download-btn">
+        <i class="fas fa-download"></i> Download CV
+      </a>
+    </header>
+
+    <p class="bio">Web developer and application programmer with experience over 7 years working with Laravel, skilled in building secure and high-performance APIs, and a growing front-end toolkit including Vue.js.</p>
+
+    <nav class="social-links">
+      <a href="mailto:nourbalata773@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+      <a href="https://www.linkedin.com/in/nour-balata-070541260" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://github.com/NourBalata" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+      <a href="tel:+972567270728"><i class="fas fa-phone"></i> +972 56 727 0728</a>
+    </nav>
+
+    <section class="skills" id="skills">
+      <h2>Skills</h2>
+      <div class="skill-list">
+        <div class="skill-item">PHP & Laravel</div>
+        <div class="skill-item">JavaScript & Vue.js</div>
+        <div class="skill-item">RESTful APIs</div>
+        <div class="skill-item">MySQL & PostgreSQL</div>
+        <div class="skill-item">Git & Version Control</div>
+        <div class="skill-item">HTML & CSS</div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects">
+      <h2>Projects</h2>
+      <div class="project-list">
+        <div class="project-card">
+          <img src="image1.jpg" alt="Mentarace Screenshot" />
+          <h3>Mentarace</h3>
+          <p>A mentorship platform built with Laravel, designed to connect mentors and mentees efficiently.</p>
+          <a href="https://github.com/NourBalata/mentarace" target="_blank" rel="noopener">View Project</a>
+        </div>
+        <div class="project-card">
+            <img src="logoo.png" alt="Mentarace Screenshot" />
+          <h3>Elegant-NEW</h3>
+          <p>A clean and modern web template built using Laravel and Tailwind CSS.</p>
+          <a href="https://github.com/NourBalata/elegant-new" target="_blank" rel="noopener">View Project</a>
+        </div>
+        <div class="project-card">
+          <img src="logo-nova.png" alt="Mentarace Screenshot" />
+          <h3>Testing-Lap</h3>
+          <p>A clean and modern web template built using Laravel and Tailwind CSS.</p>
+          <a href="https://github.com/NourBalata/novaa.git" target="_blank" rel="noopener">View Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <a class="contact-item" href="mailto:nourbalata773@gmail.com"><i class="fas fa-envelope"></i> nourbalata773@gmail.com</a>
+      <a class="contact-item" href="tel:+972567270728"><i class="fas fa-phone"></i> +972 56 727 0728</a>
+      <a class="contact-item" href="https://www.linkedin.com/in/nour-balata-070541260" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+      <a class="contact-item" href="https://github.com/NourBalata" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub Profile</a>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  </script>
+  <script>
+  const toggleBtn = document.getElementById('toggleBW');
+  const profileImg = document.querySelector('img.profile');
+
+  toggleBtn.addEventListener('click', () => {
+    profileImg.classList.toggle('grayscale');
+  });
+</script>
+
+</body>
+</html> 
